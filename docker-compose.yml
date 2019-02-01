@@ -1,9 +1,10 @@
-version: '3'
+version: "3"
 services:
+
     tests:
         image: 1dersun/ubuntu_latest_cpp:v1
-  volumes:
-      - .:/src
-  workin_dir: /src
-  entrypoint:
-      - ls -la
+        volumes:
+          - .:/src
+        working_dir: /src
+        entrypoint:
+          - ls -la
