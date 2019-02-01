@@ -15,5 +15,12 @@ cd build
 cmake ..
 cmake --build .
 ```
+Use 
 
+```sh
+./format.sh
+```
+to format all your .cpp and .h files in a right way.
 
+The *tests* directory contains the script for CI. 
+This script is supposed to be updated every time when some new project is added. 
