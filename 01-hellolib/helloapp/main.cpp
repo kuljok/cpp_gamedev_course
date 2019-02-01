@@ -1,7 +1,8 @@
-#include <iostream>
 #include "hello.h"
+#include <iostream>
 
-int main(int argc, const char* argv[]) {
+int main(int argc, const char* argv[])
+{
     using namespace std;
 
     bool streams_ok = cin.good() & cout.good();
@@ -10,7 +11,7 @@ int main(int argc, const char* argv[]) {
     {
         cout << "Please, say your name: ";
         string name;
-        cin >>  name;
+        cin >> name;
         streams_ok = hello(name);
         if (streams_ok)
         {
