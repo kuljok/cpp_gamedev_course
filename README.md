@@ -1,3 +1,5 @@
-# cpp_gamedev_course
-This repo is my first steps in c++ and game dev... so, be careful, probably the most of this repository doesn't make any sense
+# C++ Game Development Course
 
+> This repository contains mostly my homework, but thoughs and some experiments as well
+
+<img src="http://mranderson.name:8111/app/rest/builds/buildType:(id:CppGamedevCourse_Build)/statusIcon"/>
