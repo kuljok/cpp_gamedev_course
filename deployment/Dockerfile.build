@@ -1,0 +1,6 @@
+FROM 1dersun/ubuntu_sdl2:v2
+COPY 00-helloworld/ /code/00-helloworld/
+COPY 01-hellolib/ /code/01-hellolib/
+COPY tests/ /code/tests/
+WORKDIR /code/tests
+ENTRYPOINT ./run_tests.sh
