@@ -4,7 +4,7 @@ project(helloapp)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
-include_directories(${PROJECT_SOURCE_DIR}/hellolib)
+target_include_directories(${PROJECT_SOURCE_DIR}/hellolib)
 add_subdirectory(hellolib)
 
 add_executable(helloapp main.cpp)
