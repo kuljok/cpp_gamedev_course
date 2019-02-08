@@ -34,7 +34,9 @@ then
     rm -r build;
     mkdir build;
     cd build;
-    cmake ..;
+
+    # to run within container we need to specify correct SDL2_INCLUDE_DIR
+    cmake -DSDL2_INCLUDE_DIRS=/home/downloads/SDL2-2.0.9/include ..;
     cmake --build .;
 )
 else
