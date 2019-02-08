@@ -27,12 +27,18 @@ cd ../01-hellolib/helloapp
 	exit 1
     fi
 )
-pwd
-cd ../02-sdl-dynamic
+cd ../../02-sdl-dynamic
+if [ $? -eq 0 ]
+then
 (
     rm -r build;
     mkdir build;
     cd build;
     cmake ..;
-    cmake --build .;    
+    cmake --build .;
 )
+else
+    echo "Could not move to dir ../02-sdl-dynamic">&2
+    exit $?
+fi
+
