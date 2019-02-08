@@ -27,6 +27,7 @@ cd ../01-hellolib/helloapp
 	exit 1
     fi
 )
+pwd
 cd ../02-sdl-dynamic
 (
     rm -r build;
