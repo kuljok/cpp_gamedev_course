@@ -27,3 +27,11 @@ cd ../01-hellolib/helloapp
 	exit 1
     fi
 )
+cd ../02-sdl-dynamic
+(
+    rm -r build;
+    mkdir build;
+    cd build;
+    cmake ..;
+    cmake --build .;    
+)
