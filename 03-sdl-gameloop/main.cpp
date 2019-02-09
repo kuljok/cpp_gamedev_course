@@ -45,15 +45,15 @@ int main(int argc, char* argv[])
         cerr << "Could not create window: " << SDL_GetError() << endl;
         return EXIT_FAILURE;
     }
-    
+
     bool continue_loop = true;
-    while(continue_loop)
+    while (continue_loop)
     {
         SDL_Event event;
 
-        while(SDL_PollEvent(&event))
+        while (SDL_PollEvent(&event))
         {
-            switch(event.type)
+            switch (event.type)
             {
                 case SDL_KEYDOWN:
                     HandleInput(event);
@@ -76,7 +76,8 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void HandleInput(const SDL_Event& event) {
+void HandleInput(const SDL_Event& event)
+{
     using namespace std;
 
     if (event.key.keysym.sym == SDLK_w)
