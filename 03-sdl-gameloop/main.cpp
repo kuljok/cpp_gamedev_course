@@ -1,8 +1,8 @@
-#include <iostream>
-#include <SDL_version.h>
 #include <SDL.h>
+#include <SDL_version.h>
+#include <iostream>
 
-const int WINDOW_WIDTH = 640;
+const int WINDOW_WIDTH  = 640;
 const int WINDOW_HEIGHT = 480;
 
 void HandleInput(const SDL_Event& event);
@@ -14,18 +14,19 @@ std::ostream& operator<<(std::ostream& o, const SDL_version& v)
     return o;
 }
 
-
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
 
     using namespace std;
 
-    SDL_version linked = {0, 0, 0};
+    SDL_version linked = { 0, 0, 0 };
     SDL_GetVersion(&linked);
 
-    if (SDL_COMPILEDVERSION != SDL_VERSIONNUM(linked.major, linked.minor, linked.patch))
+    if (SDL_COMPILEDVERSION !=
+        SDL_VERSIONNUM(linked.major, linked.minor, linked.patch))
     {
-        cerr << "Warning: SDL2 compiled (" << SDL_COMPILEDVERSION << ") and linked (" <<
-            linked << ") versions are mismatch" << endl;
+        cerr << "Warning: SDL2 compiled (" << SDL_COMPILEDVERSION
+             << ") and linked (" << linked << ") versions are mismatch" << endl;
     }
 
     /// Init
@@ -35,20 +36,16 @@ int main(int argc, char* argv[]) {
         return EXIT_FAILURE;
     }
 
-    SDL_Window* const window =
-            SDL_CreateWindow("SDL2 Window",
-                    SDL_WINDOWPOS_UNDEFINED,
-                    SDL_WINDOWPOS_UNDEFINED,
-                    WINDOW_WIDTH,
-                    WINDOW_HEIGHT,
-                    SDL_WINDOW_OPENGL);
+    SDL_Window* const window = SDL_CreateWindow(
+        "SDL2 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+        WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_OPENGL);
 
     if (window == NULL)
     {
         cerr << "Could not create window: " << SDL_GetError() << endl;
         return EXIT_FAILURE;
     }
-
+    
     bool continue_loop = true;
     while(continue_loop)
     {
