@@ -34,9 +34,7 @@ then
     rm -r build;
     mkdir build;
     cd build;
-
-    # to run within container we need to specify correct SDL2_INCLUDE_DIR
-    cmake -DSDL2_INCLUDE_DIRS=/home/downloads/SDL2-2.0.9/include ..;
+    cmake ..;
     cmake --build .;
 )
 else
@@ -50,8 +48,7 @@ then
 	rm -r build;
 	mkdir build;
 	cd build;
-
-	cmake -DSDL2_INCLUDE_DIRS=/home/downloads/SDL2-2.0.9/include ..;
+	cmake ..;
 	cmake --build .;
     )
 else
@@ -73,5 +70,3 @@ else
     echo "Could not find the dir ../03-sdl-gameloop">&2
     exit $?
 fi
-
-    

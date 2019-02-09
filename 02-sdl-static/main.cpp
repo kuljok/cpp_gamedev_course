@@ -1,4 +1,4 @@
-#include <SDL_version.h>
+#include <SDL2/SDL_version.h>
 #include <iostream>
 
 std::ostream& operator<<(std::ostream& o, const SDL_version& v)
