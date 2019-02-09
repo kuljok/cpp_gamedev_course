@@ -20,7 +20,7 @@ Use
 ```sh
 ./format.sh
 ```
-to format all your .cpp and .h files in a right way. If you don't, it's done by CI after evety commit.
+to format all your .cpp and .h files in a right way. If you don't, it's done by CI after every commit.
 
 The **tests** directory contains the script for CI. 
 This script is supposed to be updated every time when some new project is added. 
