@@ -5,6 +5,8 @@
 const int WINDOW_WIDTH = 640;
 const int WINDOW_HEIGHT = 480;
 
+void HandleInput(const SDL_Event& event);
+
 std::ostream& operator<<(std::ostream& o, const SDL_version& v)
 {
     o << std::to_string(v.major) << '.' << std::to_string(v.minor) << '.'
@@ -47,11 +49,49 @@ int main(int argc, char* argv[]) {
         return EXIT_FAILURE;
     }
 
+    bool continue_loop = true;
+    while(continue_loop)
+    {
+        SDL_Event event;
 
-    SDL_Delay(3000);
+        while(SDL_PollEvent(&event))
+        {
+            switch(event.type)
+            {
+                case SDL_KEYDOWN:
+                    HandleInput(event);
+                    break;
+                case SDL_KEYUP:
+                    HandleInput(event);
+                    break;
+                case SDL_QUIT:
+                    continue_loop = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 
     SDL_DestroyWindow(window);
     SDL_Quit();
 
     return 0;
+}
+
+void HandleInput(const SDL_Event& event) {
+    using namespace std;
+
+    if (event.key.keysym.sym == SDLK_w)
+    {
+        cout << "up" << ' ';
+        if (event.type == SDL_KEYDOWN)
+        {
+            cout << "is pressed" << endl;
+        }
+        else
+        {
+            cout << "is released" << endl;
+        }
+    }
 }
