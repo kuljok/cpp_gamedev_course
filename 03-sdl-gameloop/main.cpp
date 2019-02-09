@@ -1,5 +1,5 @@
-#include <SDL.h>
-#include <SDL_version.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_version.h>
 #include <iostream>
 
 const int WINDOW_WIDTH  = 640;
