@@ -2,6 +2,7 @@ FROM 1dersun/ubuntu_sdl2:v2
 COPY 00-helloworld/ /code/00-helloworld/
 COPY 01-hellolib/ /code/01-hellolib/
 COPY 02-sdl-dynamic/ /code/02-sdl-dynamic/
+COPY 02-sdl-static/ /code/02-sdl-static/
 COPY tests/ /code/tests/
 WORKDIR /code/tests
 ENTRYPOINT ./run_tests.sh
