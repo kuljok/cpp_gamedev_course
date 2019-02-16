@@ -1,9 +1,22 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_version.h>
 #include <iostream>
+#include <map>
+#include <string>
 
 const int WINDOW_WIDTH  = 640;
 const int WINDOW_HEIGHT = 480;
+
+const std::map<SDL_Keycode, std::string> keymap = {
+    { SDLK_w, "up" },
+    { SDLK_a, "left" },
+    { SDLK_s, "down" },
+    { SDLK_d, "right" },
+    { SDLK_LCTRL, "button_one" },
+    { SDLK_SPACE, "button_two" },
+    { SDLK_ESCAPE, "select" },
+    { SDLK_RETURN, "start" }
+};
 
 void HandleInput(const SDL_Event& event);
 
@@ -80,9 +93,11 @@ void HandleInput(const SDL_Event& event)
 {
     using namespace std;
 
-    if (event.key.keysym.sym == SDLK_w)
+    const SDL_Keycode& key = event.key.keysym.sym;
+    if (keymap.count(key) > 0)
     {
-        cout << "up" << ' ';
+        const string& keyname = keymap.at(key);
+        cout << keyname << ' ';
         if (event.type == SDL_KEYDOWN)
         {
             cout << "is pressed" << endl;
@@ -90,6 +105,12 @@ void HandleInput(const SDL_Event& event)
         else
         {
             cout << "is released" << endl;
+        }
+        if (keyname == "select")
+        {
+            SDL_Event quitEvent;
+            quitEvent.type = SDL_QUIT;
+            SDL_PushEvent(&quitEvent);
         }
     }
 }
